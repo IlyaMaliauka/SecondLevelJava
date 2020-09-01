@@ -17,8 +17,8 @@ public class Group {
         if (group.isEmpty()) {
             throw new Exception("No students in the group");
         }
-        System.out.println("Group " + name + ", Group head: " + groupHeadName + "Mobile number: " + groupHeadMobileNumber +
-                ", Group e-mail: " + groupEmail + "\nStudents: " + group);
+        System.out.println("Group " + name + ", Group head: " + groupHeadName + " Mobile number: " + groupHeadMobileNumber +
+                ", Group e-mail: " + groupEmail + "\n" + "\nStudents: " + group);
     }
 
     public void getAverageGroupMark () {
@@ -27,7 +27,7 @@ public class Group {
            averageMark += c.getHistoryMark();
         }
         averageMark /= group.size();
-        System.out.println("Average history mark of the group is " + averageMark);
+        System.out.println("\nAverage history mark of the group " + name + " is " + averageMark);
     }
 
     public double getAverageMark() {

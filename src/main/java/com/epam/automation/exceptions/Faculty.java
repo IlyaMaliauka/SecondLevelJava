@@ -15,7 +15,8 @@ public class Faculty {
         if (faculty.isEmpty()) {
             throw new Exception("No groups on the Faculty!");
         }
-        System.out.println(faculty);
+        System.out.println("\nFaculty " + name +
+                ", Dean: " + deanName);
     }
 
     public double getAverageFacultyMark() {
@@ -29,10 +30,8 @@ public class Faculty {
 
     @Override
     public String toString() {
-        return "Faculty{" +
-                "name='" + name + '\'' +
-                ", deanName='" + deanName + '\'' +
-                '}';
+        return "Faculty " + name +
+                ", Dean: " + deanName;
     }
 
     public void displayAverageFacultyMark () {
@@ -40,7 +39,7 @@ public class Faculty {
             averageFacultyMark += c.getAverageMark();
         }
         averageFacultyMark /= faculty.size();
-        System.out.println("Average history mark of the faculty is " + averageFacultyMark);
+        System.out.println("Average history mark of the " + name + " is " + averageFacultyMark);
 
 
     }

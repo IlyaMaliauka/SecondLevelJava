@@ -14,7 +14,8 @@ public class University {
         if (university.isEmpty()) {
             throw new Exception("No groups on the Faculty!");
         }
-        System.out.println(university);
+        System.out.println("\n" + name+
+                ", Rector: " + rectorName);
     }
 
     public University(String name, String rectorName) {
@@ -24,10 +25,8 @@ public class University {
 
     @Override
     public String toString() {
-        return "University{" +
-                "name='" + name + '\'' +
-                ", rectorName='" + rectorName + '\'' +
-                '}';
+        return name+
+                ", Rector: " + rectorName;
     }
 
     public void displayAverageUniversityMark() {
@@ -35,6 +34,6 @@ public class University {
                 averageUniversityMark += c.getAverageFacultyMark();
             }
             averageUniversityMark /= university.size();
-            System.out.println("Average history mark of the faculty is " + averageUniversityMark);
+            System.out.println("Average history mark of the " + name + " is " + averageUniversityMark);
         }
     }

@@ -46,15 +46,12 @@ public class Student {
         averageStudentMark += getForeignLangMark();
         averageStudentMark += getHighMathsMark();
         averageStudentMark /= 4;
-        return "\nStudent{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", foreignLangMark=" + foreignLangMark +
-                ", historyMark=" + historyMark +
-                ", civilLawMark=" + civilLawMark +
-                ", highMathsMark=" + highMathsMark +
-                ", averageMark= " + averageStudentMark +
-                '}';
+        return "\n" + name + " " + surname +
+                ", ID: " + id +
+                ", Foreign Language Mark: " + foreignLangMark +
+                ", History Mark: " + historyMark +
+                ", Civil Law Mark: " + civilLawMark +
+                ", High Math Mark: " + highMathsMark +
+                ", Average Mark: " + averageStudentMark;
     }
 }
