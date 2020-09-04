@@ -1,8 +1,13 @@
 package com.epam.automation.exceptions;
 
+import com.epam.automation.exceptions.Exceptions.NoFacultiesInUniversityException;
+import com.epam.automation.exceptions.Exceptions.NoGroupsOnFacultyException;
+import com.epam.automation.exceptions.Exceptions.NoStudentsInGroupException;
+import com.epam.automation.exceptions.Exceptions.WrongMarkException;
+
 public class Runner {
-    public static void main(String[] args) throws Exception {
-        Student mathStudent1 = new Student(2, "Mikita", "Berazneu", 10, 8, 9,8);
+    public static void main(String[] args) throws WrongMarkException, NoStudentsInGroupException, NoGroupsOnFacultyException, NoFacultiesInUniversityException {
+        Student mathStudent1 = new Student(2, "Mikita", "Berazneu", 10, 9, 9,8);
         Student mathStudent2 = new Student(3, "Vitaly", "Zaharau", 9, 5, 6, 5);
         Student mathStudent3 = new Student(4, "Tsimafei", "Belski", 5, 10, 9, 10);
         Student lawStudent1 = new Student(5, "Pavel", "Sakalou", 4, 8, 6,4);

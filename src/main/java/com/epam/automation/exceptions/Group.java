@@ -1,5 +1,7 @@
 package com.epam.automation.exceptions;
 
+import com.epam.automation.exceptions.Exceptions.NoStudentsInGroupException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,20 +11,19 @@ public class Group {
     private String groupHeadMobileNumber;
     private String groupEmail;
     private double averageMark = 0;
-    private ArrayList<Student> group = new ArrayList<>();
+    private List<Student> group = new ArrayList<>();
 
     public void addToGroup (Student student) { group.add(student);}
 
-    public void displayGroup () throws Exception {
+    public void displayGroup () throws NoStudentsInGroupException {
         if (group.isEmpty()) {
-            throw new Exception("No students in the group");
+            throw new NoStudentsInGroupException("No students in the group");
         }
         System.out.println("Group " + name + ", Group head: " + groupHeadName + " Mobile number: " + groupHeadMobileNumber +
                 ", Group e-mail: " + groupEmail + "\n" + "\nStudents: " + group);
     }
 
     public void getAverageGroupMark () {
-
         for (Student c : group) {
            averageMark += c.getHistoryMark();
         }

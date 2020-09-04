@@ -1,5 +1,7 @@
 package com.epam.automation.exceptions;
 
+import com.epam.automation.exceptions.Exceptions.NoFacultiesInUniversityException;
+
 import java.util.ArrayList;
 
 public class University {
@@ -10,9 +12,9 @@ public class University {
 
     public void addFacultyToUniversity (Faculty faculty) { university.add(faculty);}
 
-    public void displayUniversity() throws Exception {
+    public void displayUniversity() throws NoFacultiesInUniversityException {
         if (university.isEmpty()) {
-            throw new Exception("No groups on the Faculty!");
+            throw new NoFacultiesInUniversityException("No groups on the Faculty!");
         }
         System.out.println("\n" + name+
                 ", Rector: " + rectorName);
