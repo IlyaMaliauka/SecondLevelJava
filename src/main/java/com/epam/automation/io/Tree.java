@@ -6,19 +6,24 @@ import java.io.IOException;
 import java.io.Writer;
 
 public class Tree {
-    public static void tree(File file, String indent, Writer out) throws IOException {
+    private double filesLength;
+
+    public void tree(File file, String indent, Writer out) throws IOException {
         if (file.isDirectory()) {
             out.write(indent + System.lineSeparator());
             for (File child : file.listFiles()) {
                 if (child.isFile()) {
                     indent = "  |----- " + child.getName() + System.lineSeparator();
                     out.write(indent);
+                    filesLength += child.getName().length();
                 } else {
                     indent = " |+++++ " + child.getName();
                     tree(child, indent, out);
                 }
             }
-        } else {
+        }
+    }
+        public void scanFile(File file) {
             String[] words;
             String s;
             final String fileInput = "|-----";
@@ -26,6 +31,7 @@ public class Tree {
             double fileCount = 0;
             double folderCount = 0;
             double averageFilesInFolders;
+            double filesAverageLength;
             try (BufferedReader reader = new BufferedReader(new java.io.FileReader(file))) {
                 while ((s = reader.readLine()) != null) {
                     words = s.split(" ");
@@ -39,12 +45,13 @@ public class Tree {
                     }
                 }
                 averageFilesInFolders = fileCount / folderCount;
+                filesAverageLength = filesLength / fileCount;
                 System.out.println("There are " + fileCount + " files in " + file.getName() + " file");
                 System.out.println("There are " + folderCount + " folders in " + file.getName() + " file");
                 System.out.println("Average quantity of files in folders: " + averageFilesInFolders);
+                System.out.println("Average length of a file: " + filesAverageLength);
             } catch (IOException ex) {
                 System.out.println(ex.getMessage());
             }
         }
     }
-}
