@@ -13,9 +13,9 @@ public class Student {
     private double averageStudentMark = 0;
 
     public Student(int id, String name, String surname, int foreignLangMark, int historyMark, int civilLawMark, int highMathsMark) throws WrongMarkException {
-        if (historyMark<0 | historyMark>10 | foreignLangMark<0 | foreignLangMark>10 |
-                civilLawMark<0 | civilLawMark>10 |
-                highMathsMark<0 | highMathsMark>10) throw new WrongMarkException("Incorrect mark!");
+        if (historyMark < 0 | historyMark > 10 | foreignLangMark < 0 | foreignLangMark > 10 |
+                civilLawMark < 0 | civilLawMark > 10 |
+                highMathsMark < 0 | highMathsMark > 10) throw new WrongMarkException("Incorrect mark!");
         this.id = id;
         this.name = name;
         this.surname = surname;

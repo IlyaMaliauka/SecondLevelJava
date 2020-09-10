@@ -11,7 +11,14 @@ public class Faculty {
     private String deanName;
     private double averageFacultyMark = 0;
 
-    public void addGroupToFaculty (Group group) { faculty.add(group);}
+    public Faculty(String name, String deanName) {
+        this.name = name;
+        this.deanName = deanName;
+    }
+
+    public void addGroupToFaculty(Group group) {
+        faculty.add(group);
+    }
 
     public void displayFaculty() throws NoGroupsOnFacultyException {
         if (faculty.isEmpty()) {
@@ -25,18 +32,13 @@ public class Faculty {
         return averageFacultyMark;
     }
 
-    public Faculty(String name, String deanName) {
-        this.name = name;
-        this.deanName = deanName;
-    }
-
     @Override
     public String toString() {
         return "Faculty " + name +
                 ", Dean: " + deanName;
     }
 
-    public void displayAverageFacultyMark () {
+    public void displayAverageFacultyMark() {
         for (Group c : faculty) {
             averageFacultyMark += c.getAverageMark();
         }
