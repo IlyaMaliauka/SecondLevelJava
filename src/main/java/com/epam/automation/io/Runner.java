@@ -5,16 +5,18 @@ import java.io.*;
 
 public class Runner {
     public static void main(String[] args) {
-        Tree tree = new Tree();
-        File file = new File("D:/info.txt");
+        TreeViewer treeViewer = new TreeViewer();
+        String treePath = "D:/test";
+        String fileToWrite = "D:/info.txt";
+        File file = new File(treePath);
 
         if (file.isDirectory()) {
-            try (Writer out = new FileWriter("D:/info.txt")) {
-                tree.tree(new File("D:/test"), "", out);
+            try (Writer out = new FileWriter(fileToWrite)) {
+                treeViewer.displayTree(new File(treePath), "", out);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else
-            tree.scanFile(new File("D:/info.txt"));
+            treeViewer.scanFile(new File(treePath));
     }
 }

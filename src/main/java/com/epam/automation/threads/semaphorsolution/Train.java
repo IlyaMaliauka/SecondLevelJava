@@ -2,28 +2,30 @@ package com.epam.automation.threads.semaphorsolution;
 
 import java.util.concurrent.Semaphore;
 
-public class Train extends Thread {
-    Tunnel tunnel;
-    Semaphore sem1;
+class Train extends Thread {
+    Semaphore sem;
+    int num = 0;
     int id;
 
-    public Train(Tunnel tunnel, Semaphore sem1, int id) {
-        this.tunnel = tunnel;
-        this.sem1 = sem1;
+    Train(Semaphore sem, int id) {
+        this.sem = sem;
         this.id = id;
     }
 
     public void run() {
         try {
-            sem1.acquire();
-            System.out.println("Поезд " + id + " заезжает в тоннель.");
-            sleep(3000);
+            while (num < 3)
+            {
+                sem.acquire();
+                System.out.println("Train " + id + " has entered the tunnel");
+                sleep(2000);
+                num++;
 
+                System.out.println("Train " + id + " has left the tunnel");
+                sem.release();
 
-            System.out.println("Поезд " + id + " покидает тоннель.");
-            sem1.release();
-            sleep(3000);
-
+                sleep(1000);
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

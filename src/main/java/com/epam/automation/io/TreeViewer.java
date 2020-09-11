@@ -5,10 +5,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Writer;
 
-public class Tree {
+public class TreeViewer {
     private double filesLength;
 
-    public void tree(File file, String indent, Writer out) throws IOException {
+    public void displayTree(File file, String indent, Writer out) throws IOException {
         if (file.isDirectory()) {
             out.write(indent + System.lineSeparator());
             for (File child : file.listFiles()) {
@@ -18,7 +18,7 @@ public class Tree {
                     filesLength += child.getName().length();
                 } else {
                     indent = " |+++++ " + child.getName();
-                    tree(child, indent, out);
+                    displayTree(child, indent, out);
                 }
             }
         }
